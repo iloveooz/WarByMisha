@@ -5,8 +5,6 @@
 #include <iostream>
 #include <conio.h>
 
-// TODO replace all printf by cout
-
 // TODO rename all variables
 // TODO rename all matrixes
 // TODO rename all functions
@@ -229,7 +227,7 @@ int main() {
 
 			gotoxy(35, 7);
 			std::cout << "q - конец";
-zb:
+		zb:
 			gotoxy(27, 9);
 			std::cout << "Ваш выбор (1 - 8 или q): ";
 
@@ -253,7 +251,7 @@ zb:
 
 			clearScreenArea(0, 9, 70, 5);
 		}
-za:
+	za:
 		d = ' ';
 		gotoxy(15, 13);
 		std::cout << "Введите количество начальных единиц энергии: ";
@@ -270,7 +268,7 @@ za:
 		gotoxy(15, 13);
 		std::cout << "Введите количество начальных единиц руды: ";
 		std::cin >> resource[i][2];
-		
+
 		clearScreenArea(1, 13, 70, 1);
 
 		gotoxy(18, 11);
@@ -341,9 +339,9 @@ za:
 
 				gotoxy(66, 15);
 				std::cout << "зии " << typeForce[j] << (t + 1);
-zc:
+			zc:
 				ds(m, n);
-ze:
+			ze:
 				keyInput();
 
 				if (d == 'a' && n > 1) {
@@ -392,7 +390,7 @@ ze:
 				if (d == 'e')
 					goto zd;
 				goto ze;
-zf:
+			zf:
 				delay(500);
 			}
 		}
@@ -479,7 +477,7 @@ vf:
 				// if (a[!i][t][0] == 1 && a[!i][t][1] == j) { qsd(!i); }
 			}
 		}
-zu:
+	zu:
 		if (j5 < 7 && j >= 7) {
 			sec();
 		}
@@ -488,7 +486,7 @@ zu:
 			goto zv;
 		}
 		goto zu;
-zv:
+	zv:
 		for (i9 = 0; i9 < 200; i9++) {
 			if (a[!i][i9][0] == 1 &&
 				a[!i][i9][5] <= 0 &&
@@ -514,10 +512,10 @@ zv:
 			f8[1][i15] = f8[1][i15] + e8[1][i15];
 		}
 
-vg:
+	vg:
 		gotoxy(66, 11);
 		std::cout << "ход окончен";
-		
+
 		gotoxy(66, 13);
 		std::cout << "потери за ход - х";
 
@@ -850,7 +848,7 @@ void div() {
 					goto zl;
 				}
 			}
-zl:
+		zl:
 			for (u = 5; u <= 10; u++) {
 				if (mn[j] + 4 >= u)
 					a[i][k][u] = lf[j];
@@ -879,7 +877,7 @@ zl:
 				std::cout << "нападение (0 / 1)";
 
 				delay(300);
-zn:
+			zn:
 				d = _getch();
 				if (d == '0' || d == '1') {
 					a[i][k][12] = atoi(&d);
@@ -1089,7 +1087,7 @@ void step() {
 			d != '8' &&
 			d != 's')
 			dw++;
-zp:
+	zp:
 		gotoxy(66, 16);
 		std::cout << (dw - 1) << " ходов";
 	}
@@ -1382,16 +1380,16 @@ void bat(long o, long k1, long k2) {
 	}
 
 	gotoxy(66, 20);
-	printf("до: %ld-%ld", fr0, fr1);
+	std::cout << "До: " << fr0 << '-' << fr1;
 
 	gotoxy(66, 21);
-	printf("потери: %ld-%ld", fr0 - fg0, fr1 - fg1);
-
+	std::cout << "Потери: " << (fr0 - fg0) << '-' << (fr1 - fg1);
+	
 	gotoxy(66, 22);
-	printf("после: %ld-%ld", fg0, fg1);
-
+	std::cout << "После: " << fg0 << '-' << fg1;
+	
 	gotoxy(66, 23);
-	printf("статистика-x");
+	std::cout << "статистика - x";
 
 	qs0 = a[o][k1][1];
 	qs1 = a[!o][k2][1];
@@ -1509,7 +1507,7 @@ void kik(long o, long k1, long k2) {
 	ss = c1[sw][0 + f3] / c1[sv][1 + f4];
 
 	gotoxy(66, 19);
-	printf("%f", ss);
+	std::cout << ss;
 
 	while (a[!o][k2][k4] <= 0) {
 		if (k4 >= 10) {
@@ -1517,7 +1515,7 @@ void kik(long o, long k1, long k2) {
 			goto vc;
 		}
 		k4++;
-vc:
+	vc:
 		;
 	}
 
@@ -1595,20 +1593,20 @@ vc:
 		a[o][k1][i7] = 0;
 
 	gotoxy(66, 20);
-	printf("%ld %ld", rv, k4);
+	std::cout << rv << ' ' << k4;
 
 	gotoxy(66, 21);
-	printf("%f %f", ha0, ha1);
-
+	std::cout << ha0 << ' ' << ha1;
+	
 	gotoxy(66, 22);
-	printf("%ld %ld", fa0, fa1);
+	std::cout << fa0 << ' ' << fa1;
 
 	gotoxy(66 + (i7 - 5) * 2, 16);
-	printf("%d", a[o][k1][i7]);
+	std::cout << a[o][k1][i7];
 
 	gotoxy(66 + (k4 - 5) * 2, 17);
-	printf("%d", a[!o][k2][k4]);
-
+	std::cout << a[!o][k2][k4];
+	
 	delay(700);
 	clearScreenArea(66, 20, 15, 3);
 
@@ -1694,14 +1692,14 @@ void stt() {
 	clearScreenArea(65, 12, 16, 13);
 
 	gotoxy(66, 12);
-	printf("  немцы русские");
+	std::cout << "  немцы русские";
 
 	for (long i = 0; i < 8; i++) {
 		gotoxy(66, 14 + i);
-		printf("%c   %d  ", typeForce[i], e8[0][i]);
+		std::cout << typeForce[i] << "   " << e8[0][i];
 
 		gotoxy(76, 14 + i);
-		printf("%d  ", e8[1][i]);
+		std::cout << e8[1][i] << "  ";	
 	}
 
 	delay(100);
@@ -1713,14 +1711,15 @@ void stt() {
 void stt0() {
 	clearScreenArea(65, 12, 16, 13);
 
-	gotoxy(66, 12); printf("  немцы русские");
+	gotoxy(66, 12);
+	std::cout << "  немцы русские";
 
 	for (long i = 0; i < 8; i++) {
 		gotoxy(66, 14 + i);
-		printf("%c   %d  ", typeForce[i], f8[0][i]);
+		std::cout << typeForce[i] << "   " << f8[0][i];
 
 		gotoxy(76, 14 + i);
-		printf("%d  ", f8[1][i]);
+		std::cout << f8[1][i] << "  ";
 	}
 
 	delay(100);
@@ -1737,12 +1736,12 @@ void mine() {
 		qc[1] = resource[i][1];
 		qc[2] = resource[i][2];
 
-xa:
+	xa:
 		gotoxy(2, 18);
-		printf("Игрок %ld, введите месторождение, его координаты и код (1 - дерево, 2 - руда)\n", i + 1);
+		std::cout << "Игрок " << (i + 1) << ", введите месторождение, его координаты и код (1 - дерево, 2 - руда)";
 
 		gotoxy(2, 19);
-		printf("У вас всего %ld ед. дерева и %ld ед. руды\n", resource[i][1], resource[i][2]);
+		std::cout << "У вас всего " << resource[i][1] << " ед. дерева и " << resource[i][2] << " ед. руды\n";
 
 		std::cin >> c5;
 		std::cin >> c6;
@@ -1758,11 +1757,11 @@ xa:
 		}
 		else {
 			gotoxy(2, 20);
-			printf("У вас нет столько ресурсов");
+			std::cout << "У вас нет столько ресурсов";
 		}
 
-		gotoxy(2, 21); 
-		printf("Будете ставить месторождения еще (1 - да, 2 - нет)");
+		gotoxy(2, 21);
+		std::cout << "Будете ставить месторождения еще (1 - да, 2 - нет)";
 
 		d = _getch();
 		clearScreenArea(1, 19, 80, 5);
@@ -1789,10 +1788,10 @@ void fds() {
 			for (jj1 = 0; jj1 < 8; jj1++)
 				if (mi[i2][ii1][jj1] != 0) {
 					gotoxy(ii1 * 5 + 1, jj1 * 2 + 1);
-					printf("%d", mi[i2][ii1][jj1]);
+					std::cout << mi[i2][ii1][jj1];
 
 					gotoxy(ii1 * 5 + 2, jj1 * 2);
-					printf("%ld", i2 + 1);
+					std::cout << (i2 + 1);
 				}
 		}
 	}
@@ -1805,16 +1804,16 @@ xc:
 	clearScreenArea(65, 9, 15, 13);
 
 	gotoxy(65, 10);
-	printf("эн.%ld%ld ", dm1[i][0] / 10, dm1[i][0] % 10);
+	std::cout << "Эн." << dm1[i][0] / 10 << dm1[i][0] % 10 << ' ';
 
 	gotoxy(65, 11);
-	printf("дер.%ld%ld ", dm1[i][1] / 10, dm1[i][1] % 10);
+	std::cout << "Дер." << dm1[i][1] / 10 << dm1[i][1] % 10 << ' ';
 
 	gotoxy(65, 12);
-	printf("руда.%ld%ld ", dm1[i][2] / 10, dm1[i][2] % 10);
-
+	std::cout << "Руда." << dm1[i][2] / 10 << dm1[i][2] % 10 << ' ';
+	
 	gotoxy(65, 13);
-	printf("строительство?");
+	std::cout << "строительство?";
 	delay(300);
 
 	d = _getch();
@@ -1823,7 +1822,7 @@ xc:
 		goto xb;
 
 	gotoxy(65, 13);
-	printf("координаты?   ");
+	std::cout << "координаты?   ";
 	std::cin >> q4;
 
 	gotoxy(65, 14);
@@ -1834,7 +1833,7 @@ xc:
 
 	if (l8[q4][q5] == 0) {
 		gotoxy(63, 14);
-		printf("нет электрификации");
+		std::cout << "нет электрификации";
 		goto xc;
 	}
 
@@ -1867,13 +1866,13 @@ xc:
 				l[q4 * 5 + 4][q5 * 5 + 3 + i] == 0 &&
 				i == 1)) {
 		gotoxy(65, 15);
-		printf("4-танковый");
+		std::cout << "4-танковый";
 
 		gotoxy(65, 16);
-		printf("5-казарма");
+		std::cout << "5-казарма";
 
 		gotoxy(65, 17);
-		printf("6-оборонный");
+		std::cout << "6-оборонный";
 
 		d = _getch();
 
@@ -1885,7 +1884,7 @@ xc:
 
 			if (dm1[i][0] - d2[3][0] < 0 || dm1[i][1] - d2[3][1] < 0 || dm1[i][2] - d2[3][2] < 0) {
 				gotoxy(65, 18);
-				printf("нет ресурсов");
+				std::cout << "нет ресурсов";
 				cst(sd1, sd2, sd3);
 
 				if (scx == 1)
@@ -1894,7 +1893,7 @@ xc:
 
 			if ((i == 0 && q5 <= 4) || (i == 1 && q5 >= 3)) {
 				gotoxy(65, 18);
-				printf("нельзя строить");
+				std::cout << "нельзя строить";
 				goto xc;
 			}
 
@@ -1914,7 +1913,7 @@ xc:
 				dm1[i][0] = sd1;
 				dm1[i][1] = sd2;
 				dm1[i][2] = sd3;
-xfq:
+			xfq:
 				div1();
 			}
 		}
@@ -1927,7 +1926,7 @@ xfq:
 
 			if (dm1[i][0] - d2[4][0] < 0 || dm1[i][1] - d2[4][1] < 0 || dm1[i][2] - d2[4][2] < 0) {
 				gotoxy(65, 18);
-				printf("нет ресурсов");
+				std::cout << "нет ресурсов";
 				cst(sd1, sd2, sd3);
 
 				if (scx == 1)
@@ -1936,7 +1935,7 @@ xfq:
 
 			if ((i == 0 && q5 <= 4) || (i == 1 && q5 >= 3)) {
 				gotoxy(65, 18);
-				printf("нельзя строить");
+				std::cout << "нельзя строить";
 				goto xc;
 			}
 
@@ -1956,7 +1955,7 @@ xfq:
 				dm1[i][0] = sd1;
 				dm1[i][1] = sd2;
 				dm1[i][2] = sd3;
-xfw:
+			xfw:
 				div1();
 			}
 		}
@@ -1969,7 +1968,7 @@ xfw:
 
 			if (dm1[i][0] - d2[5][0] < 0 || dm1[i][1] - d2[5][1] < 0 || dm1[i][2] - d2[5][2] < 0) {
 				gotoxy(65, 18);
-				printf("нет ресурсов");
+				std::cout << "нет ресурсов";
 				cst(sd1, sd2, sd3);
 
 				if (scx == 1)
@@ -1978,7 +1977,7 @@ xfw:
 
 			if ((i == 0 && q5 <= 4) || (i == 1 && q5 >= 3)) {
 				gotoxy(65, 18);
-				printf("нельзя строить");
+				std::cout << "нельзя строить";
 				goto xc;
 			}
 
@@ -1998,7 +1997,7 @@ xfw:
 				dm1[i][0] = sd1;
 				dm1[i][1] = sd2;
 				dm1[i][2] = sd3;
-xfe:
+			xfe:
 				div1();
 			}
 		}
@@ -2015,13 +2014,13 @@ xfe:
 		l[q4 * 5 + 4][q5 * 5 + 3 + i] == 0) {
 
 		gotoxy(65, 15);
-		printf("1-энергостанция");
+		std::cout << "1-энергостанция";
 
 		gotoxy(65, 16);
-		printf("2-лесопильня");
+		std::cout << "2-лесопильня";
 
 		gotoxy(65, 17);
-		printf("3-рудник");
+		std::cout << "3-рудник";
 
 		d = _getch();
 
@@ -2033,7 +2032,7 @@ xfe:
 
 			if (dm1[i][0] - d2[2][0] < 0 || dm1[i][1] - d2[2][1] < 0 || dm1[i][2] - d2[2][2] < 0) {
 				gotoxy(65, 18);
-				printf("нет ресурсов");
+				std::cout << "нет ресурсов";
 				cst(sd1, sd2, sd3);
 
 				if (scx == 1)
@@ -2042,7 +2041,7 @@ xfe:
 
 			if ((i == 0 && q5 <= 4) || (i == 1 && q5 >= 3)) {
 				gotoxy(65, 18);
-				printf("нельзя строить");
+				std::cout << "нельзя строить";
 				goto xc;
 			}
 
@@ -2062,7 +2061,7 @@ xfe:
 				dm1[i][0] = sd1;
 				dm1[i][1] = sd2;
 				dm1[i][2] = sd3;
-xfr:
+			xfr:
 				div1();
 			}
 		}
@@ -2075,7 +2074,7 @@ xfr:
 
 			if (dm1[i][0] - d2[1][0] < 0 || dm1[i][1] - d2[1][1] < 0) {
 				gotoxy(65, 18);
-				printf("нет ресурсов");
+				std::cout << "нет ресурсов";
 				cst(sd1, sd2, sd3);
 
 				if (scx == 1)
@@ -2084,13 +2083,13 @@ xfr:
 
 			if ((i == 0 && q5 <= 4) || (i == 1 && q5 >= 3)) {
 				gotoxy(65, 18);
-				printf("нельзя строить");
+				std::cout << "нельзя строить";
 				goto xc;
 			}
 
 			if (mi[0][q4][q5] <= 0) {
 				gotoxy(65, 18);
-				printf("нет месторождения");
+				std::cout << "нет месторождения";
 				goto xc;
 			}
 
@@ -2109,7 +2108,7 @@ xfr:
 				dm1[i][0] = sd1;
 				dm1[i][1] = sd2;
 				dm1[i][2] = sd3;
-xft:
+			xft:
 				div1();
 			}
 		}
@@ -2123,7 +2122,7 @@ xft:
 
 			if (dm1[i][0] - d2[1][0] < 0 || dm1[i][1] - d2[1][1] < 0) {
 				gotoxy(65, 18);
-				printf("нет ресурсов");
+				std::cout << "нет ресурсов";
 				cst(sd1, sd2, sd3);
 				if (scx == 1)
 					goto xc;
@@ -2131,13 +2130,13 @@ xft:
 
 			if ((i == 0 && q5 <= 4) || (i == 1 && q5 >= 3)) {
 				gotoxy(65, 18);
-				printf("нельзя строить");
+				std::cout << "нельзя строить";
 				goto xc;
 			}
 
 			if (mi[1][q4][q5] <= 0) {
 				gotoxy(65, 18);
-				printf("нет месторождения");
+				std::cout << "нет месторождения";
 				goto xc;
 			}
 
@@ -2156,14 +2155,14 @@ xft:
 				dm1[i][0] = sd1;
 				dm1[i][1] = sd2;
 				dm1[i][2] = sd3;
-xfy:
+			xfy:
 				div1();
 			}
 		}
 	}
 	else {
 		gotoxy(65, 18);
-		printf("нет условий");
+		std::cout << "нет условий";
 	}
 	goto xc;
 xb:
@@ -2197,36 +2196,36 @@ xd:
 
 	if (ac[0] > 10) {
 		gotoxy(65, 10);
-		printf("эн.%ld%d   ", ac[0] / 10, afg1);
+		std::cout << "Эн." << ac[0] / 10 << afg1 << "   ";
 	}
 	else {
 		gotoxy(65, 10);
-		printf("эн.%ld   ", ac[0]);
+		std::cout << "Эн." << ac[0] << "   ";
 	}
 
 	if (ac[1] > 10) {
 		gotoxy(65, 11);
-		printf("дер.%ld%d   ", ac[1] / 10, afg2);
+		std::cout << "Дер." << ac[1] / 10 << afg2 << "   ";
 	}
 	else {
 		gotoxy(65, 11);
-		printf("эн.%ld   ", ac[1]);
+		std::cout << "Эн." << ac[1] << "   ";
 	}
 
 	if (ac[2] > 10) {
 		gotoxy(65, 12);
-		printf("руда.%ld%d   ", ac[2] / 10, afg3);
+		std::cout << "Руда." << ac[2] / 10 << afg3 << "   ";
 	}
 	else {
 		gotoxy(65, 12);
-		printf("эн.%ld   ", ac[2]);
+		std::cout << "Эн." << ac[2] << "   ";
 	}
 
 	gotoxy(65, 14);
-	printf("нехватка сырья  ");
+	std::cout << "нехватка сырья  ";
 
 	gotoxy(65, 15);
-	printf("восполнять?     ");
+	std::cout << "Восполнять?     ";
 
 	delay(300);
 	d = _getch();
@@ -2238,10 +2237,10 @@ xd:
 
 	if (ac1 < 0) {
 		gotoxy(65, 14);
-		printf("нехватка энергии");
+		std::cout << "нехватка энергии";
 
 		gotoxy(65, 15);
-		printf("рес. и кол-во?");
+		std::cout << "рес. и кол-во?";
 
 		gotoxy(65, 16);
 		std::cin >> wq;
@@ -2251,7 +2250,7 @@ xd:
 
 		if (wq == 0) {
 			gotoxy(65, 14);
-			printf("нехватка энергии");
+			std::cout << "нехватка энергии";
 			goto xd;
 		}
 
@@ -2259,7 +2258,7 @@ xd:
 
 		if (ac[wq] - wq1 < 0) {
 			gotoxy(65, 14);
-			printf("нехватка ресурса");
+			std::cout << "нехватка ресурса";
 			goto xd;
 		}
 
@@ -2275,10 +2274,10 @@ xd:
 
 	if (ac2 < 0) {
 		gotoxy(65, 14);
-		printf("нехватка дерева ");
+		std::cout << "нехватка дерева ";
 
 		gotoxy(65, 15);
-		printf("рес. и кол-во?");
+		std::cout << "рес. и кол-во?";
 
 		gotoxy(65, 16);
 		std::cin >> wq;
@@ -2288,7 +2287,7 @@ xd:
 
 		if (wq == 1) {
 			gotoxy(65, 14);
-			printf("нехватка дерева ");
+			std::cout << "нехватка дерева ";
 			goto xd;
 		}
 
@@ -2296,7 +2295,7 @@ xd:
 
 		if (ac[wq] - wq1 < 0) {
 			gotoxy(65, 14);
-			printf("нехватка ресурса");
+			std::cout << "нехватка ресурса";
 			goto xd;
 		}
 
@@ -2312,10 +2311,10 @@ xd:
 
 	if (ac3 < 0) {
 		gotoxy(65, 14);
-		printf("нехватка руды   ");
+		std::cout << "нехватка руды   ";
 
 		gotoxy(65, 15);
-		printf("ресурс и кол-во?");
+		std::cout << "ресурс и кол-во?";
 
 		gotoxy(65, 16);
 		std::cin >> wq;
@@ -2325,7 +2324,7 @@ xd:
 
 		if (wq == 2) {
 			gotoxy(65, 14);
-			printf("нехватка руды   ");
+			std::cout << "нехватка руды   ";
 			goto xd;
 		}
 
@@ -2333,7 +2332,7 @@ xd:
 
 		if (ac[wq] - wq1 < 0) {
 			gotoxy(65, 14);
-			printf("нехватка ресурса");
+			std::cout << "нехватка ресурса";
 			goto xd;
 		}
 
@@ -2383,12 +2382,12 @@ void div1() {
 				goto xj;
 			}
 		}
-xj:
+	xj:
 		a0[i][k][5] = ll[dx - 1];
 		goto xk;
 
 		dg[q5][q4] = dx;
-xi:
+	xi:
 		;
 	}
 xk:
@@ -2407,16 +2406,16 @@ void pro() {
 	se[2] = 0;
 
 	gotoxy(65, 5);
-	printf("ресурсы до");
+	std::cout << "ресурсы до";
 
 	gotoxy(67, 6);
-	printf("%ld%ld", dm1[i][0] / 10, dm1[i][0] % 10);
+	std::cout << dm1[i][0] / 10 << dm1[i][0] % 10;
 
 	gotoxy(67, 7);
-	printf("%ld%ld", dm1[i][1] / 10, dm1[i][1] % 10);
+	std::cout << dm1[i][1] / 10 << dm1[i][1] % 10;
 
 	gotoxy(67, 8);
-	printf("%ld%ld", dm1[i][2] / 10, dm1[i][2] % 10);
+	std::cout << dm1[i][2] / 10 << dm1[i][2] % 10;
 
 	for (int k3 = 0; k3 < 50; k3++) {
 		if (a0[i][k3][0] == 1) {
@@ -2470,45 +2469,45 @@ void pro() {
 				}
 			}
 		}
-xl:
+	xl:
 		;
 	}
 
 	gotoxy(65, 9);
-	printf("добыча");
+	std::cout << "Добыча";
 
 	gotoxy(67, 10);
-	printf("%d%d", se[0] / 10, se[0] % 10);
+	std::cout << se[0] / 10 << se[0] % 10;
 
 	gotoxy(67, 11);
-	printf("%d%d", se[1] / 10, se[1] % 10);
+	std::cout << se[1] / 10 << se[1] % 10;
 
 	gotoxy(67, 12);
-	printf("%d%d", se[2] / 10, se[2] % 10);
+	std::cout << se[2] / 10 << se[2] % 10;
 
 	gotoxy(65, 13);
-	printf("ресурсы после");
+	std::cout << "Ресурсы после";
 
 	gotoxy(67, 14);
-	printf("%ld%ld", dm1[i][0] / 10, dm1[i][0] % 10);
+	std::cout << dm1[i][0] / 10 << dm1[i][0] % 10;
 
 	gotoxy(67, 15);
-	printf("%ld%ld", dm1[i][1] / 10, dm1[i][1] % 10);
+	std::cout << dm1[i][1] / 10 << dm1[i][1] % 10;
 
 	gotoxy(67, 16);
-	printf("%ld%ld", dm1[i][2] / 10, dm1[i][2] % 10);
+	std::cout << dm1[i][2] / 10 << dm1[i][2] % 10;
 
 	gotoxy(65, 17);
-	printf("месторождения");
+	std::cout << "Месторождения";
 
 	gotoxy(67, 18);
-	printf("%ld%ld", resource[i][0] / 10, resource[i][0] % 10);
+	std::cout << resource[i][0] / 10 << resource[i][0] % 10;
 
 	gotoxy(67, 19);
-	printf("%ld%ld", resource[i][1] / 10, resource[i][1] % 10);
+	std::cout << resource[i][1] / 10 << resource[i][1] % 10;
 
 	gotoxy(67, 20);
-	printf("%ld%ld", resource[i][2] / 10, resource[i][2] % 10);
+	std::cout << resource[i][2] / 10 << resource[i][2] % 10;
 
 	d = _getch();
 	clearScreenArea(65, 5, 17, 16);
@@ -2522,16 +2521,16 @@ void pro1() {
 	int bm = 0;
 
 	gotoxy(65, 7);
-	printf("эн.%ld%ld ", dm1[i][0] / 10, dm1[i][0] % 10);
+	std::cout << "Эн." << dm1[i][0] / 10 << dm1[i][0] % 10 << ' ';
 
 	gotoxy(65, 8);
-	printf("дер.%ld%ld ", dm1[i][1] / 10, dm1[i][1] % 10);
+	std::cout << "Дер." << dm1[i][1] / 10 << dm1[i][1] % 10 << ' ';
 
 	gotoxy(65, 9);
-	printf("руда.%ld%ld ", dm1[i][2] / 10, dm1[i][2] % 10);
+	std::cout << "Руда." << dm1[i][2] / 10 << dm1[i][2] % 10 << ' ';
 
 	gotoxy(65, 10);
-	printf("ставить войска?");
+	std::cout << "Ставить войска?";
 
 	delay(500);
 
@@ -2560,24 +2559,24 @@ void pro1() {
 	for (k2 = 0; k2 < 50; k2++) {
 		if (a0[i][k2][0] == 1) {
 			if (a0[i][k2][1] == 4) {
-xpa:
+			xpa:
 				ds(a0[i][k2][2] * 5 + 1, a0[i][k2][3] * 5 + 2);
 				clearScreenArea(65, 5, 17, 16);
 
 				gotoxy(65, 10);
-				printf("1-A          ");
+				std::cout << "1-A          ";
 
 				gotoxy(65, 11);
-				printf("2-T");
+				std::cout << "2-T";
 
 				gotoxy(65, 12);
-				printf("3-Z");
+				std::cout << "3-Z";
 
 				gotoxy(65, 13);
-				printf("4-D");
+				std::cout << "4-D";
 
 				gotoxy(65, 14);
-				printf("иное-отказ");
+				std::cout << "иное-отказ";
 
 				d = _getch();
 
@@ -2585,20 +2584,20 @@ xpa:
 					qw = atoi(&d);
 
 					gotoxy(65, 17);
-					printf("%c", typeForce[qw]);
+					std::cout << typeForce[qw];
 				}
 				else
 					goto xm;
-xoa:
+			xoa:
 				gotoxy(65, 14);
-				printf("сколько?   ");
+				std::cout << "сколько?   ";
 
 				d = _getch();
 				qa = atoi(&d);
 
 				if (qa > 7) {
 					gotoxy(65, 14);
-					printf("не больше 7");
+					std::cout << "не больше 7";
 					delay(500);
 					clearScreenArea(65, 14, 16, 2);
 					delay(300);
@@ -2607,9 +2606,9 @@ xoa:
 
 				if ((qw == 3 || qw == 4) && bm < qa) {
 					gotoxy(65, 14);
-					printf("нехватка");
+					std::cout << "нехватка";
 					gotoxy(65, 15);
-					printf("комплексности");
+					std::cout << "комплексности";
 					delay(1000);
 					clearScreenArea(65, 14, 16, 3);
 					delay(300);
@@ -2626,7 +2625,7 @@ xoa:
 
 				if (sh1 < 0 || sh2 < 0 || sh3 < 0) {
 					gotoxy(65, 18);
-					printf("нет ресурсов");
+					std::cout << "нет ресурсов";
 					cst(sh1, sh2, sh3);
 
 					if (scx == 1)
@@ -2649,35 +2648,35 @@ xoa:
 			}
 
 			if (a0[i][k2][1] == 5) {
-xpb:
+			xpb:
 				ds(a0[i][k2][2] * 5 + 1, a0[i][k2][3] * 5 + 2);
 				clearScreenArea(65, 5, 17, 16);
 
 				gotoxy(65, 10);
-				printf("1-C ");
+				std::cout << "1-C ";
 
 				gotoxy(65, 14);
-				printf("иное-отказ");
+				std::cout << "иное-отказ";
 
 				d = _getch();
 
 				if (d == '1') {
 					qw = atoi(&d) - 1;
 					gotoxy(65, 17);
-					printf("%c", typeForce[qw]);
+					std::cout << typeForce[qw];
 				}
 				else
 					goto xm;
-xob:
+			xob:
 				gotoxy(65, 14);
-				printf("сколько?   ");
+				std::cout << "сколько?   ";
 
 				d = _getch();
 				qa = atoi(&d);
 
 				if (qa > 4) {
 					gotoxy(65, 14);
-					printf("не больше 4");
+					std::cout << "не больше 4";
 					delay(500);
 					clearScreenArea(65, 14, 16, 2);
 					delay(300);
@@ -2694,7 +2693,7 @@ xob:
 
 				if (sh1 < 0 || sh2 < 0 || sh3 < 0) {
 					gotoxy(65, 18);
-					printf("нет ресурсов");
+					std::cout << "нет ресурсов";
 					cst(sh1, sh2, sh3);
 
 					if (scx == 1)
@@ -2715,41 +2714,41 @@ xob:
 			}
 
 			if (a0[i][k2][1] == 6) {
-xpc:
+			xpc:
 				ds(a0[i][k2][2] * 5 + 1, a0[i][k2][3] * 5 + 2);
 				clearScreenArea(65, 5, 17, 16);
 
 				gotoxy(65, 10);
-				printf("1-4 ");
+				std::cout << "1-4 ";
 
 				gotoxy(65, 11);
-				printf("2-5");
+				std::cout << "2-5";
 
 				gotoxy(65, 12);
-				printf("3-L ");
+				std::cout << "3-L ";
 
 				gotoxy(65, 14);
-				printf("иное-отказ");
+				std::cout << "иное-отказ";
 
 				d = _getch();
 
 				if (d == '1' || d == '2' || d == '3') {
 					qw = atoi(&d) + 4;
 					gotoxy(65, 17);
-					printf("%c", typeForce[qw]);
+					std::cout << typeForce[qw];
 				}
 				else
 					goto xm;
-xoc:
+			xoc:
 				gotoxy(65, 14);
-				printf("сколько?   ");
+				std::cout << "сколько?   ";
 
 				d = _getch();
 				qa = atoi(&d);
 
 				if (qa > 6) {
 					gotoxy(65, 14);
-					printf("не больше 6");
+					std::cout << "не больше 6";
 					delay(500);
 					clearScreenArea(65, 14, 16, 2);
 					delay(300);
@@ -2766,7 +2765,7 @@ xoc:
 
 				if (sh1 < 0 || sh2 < 0 || sh3 < 0) {
 					gotoxy(65, 18);
-					printf("нет ресурсов");
+					std::cout << "нет ресурсов";
 					cst(sh1, sh2, sh3);
 
 					if (scx == 1)
@@ -2785,7 +2784,7 @@ xoc:
 				pls(qa, qw, a0[i][k2][2], a0[i][k2][3]);
 			}
 		}
-xm:
+	xm:
 		;
 	}
 xn:
@@ -2803,7 +2802,7 @@ void pls(int a1, int a2, int a3, int a4) {
 	for (l4 = 0; l4 < a1; l4++) {
 		vax = 0;
 		vay = 0;
-xq:
+	xq:
 		if (l[a3 * 5 + 2 + vax][a4 * 5 + 1 + 4 * i + vay * n1] != 0) {
 			vax++;
 			if (vax > 3) {
@@ -2929,7 +2928,7 @@ ca:
 	delay(200);
 
 	gotoxy(65, 12);
-	printf("удар %c%d по %c", typeForce[a[r2][y2][1]], a[r2][y2][4], e1[s7]);
+	std::cout << "Удар " << typeForce[a[r2][y2][1]] << a[r2][y2][4] << " по " << e1[s7];
 
 	clearScreenArea(66, 14, 14, 2);
 
@@ -2953,14 +2952,14 @@ ca:
 		textcolor(u - 4);
 
 		if (u - 4 <= mn[a[r2][y2][1]] && a[r2][y2][u] > 0)
-			printf("%d", a[r2][y2][u]);
+			std::cout << a[r2][y2][u];
 		else
-			printf(" ");
+			std::cout << " ";
 		d = _getch();
 	}
 
 	gotoxy(66, 14);
-	printf(" %d", a0[!r2][rvg][5]);
+	std::cout << a0[!r2][rvg][5];
 
 	fnb = 0;
 
@@ -2989,16 +2988,16 @@ ca:
 	}
 
 	gotoxy(66, 20);
-	printf("до: %ld-%ld", fr0, fr1);
+	std::cout << "До: " << fr0 << "-" << fr1;
 
 	gotoxy(66, 21);
-	printf("потери: %ld-%ld", fr0 - fg0, fr1 - fg1);
+	std::cout << "Потери: " << (fr0 - fg0) << "-" << (fr1 - fg1);
 
 	gotoxy(66, 22);
-	printf("после: %ld-%ld", fg0, fg1);
+	std::cout << "После: " << fg0 << "-" << fg1;
 
 	gotoxy(66, 23);
-	printf("статистика-x");
+	std::cout << "статистика - x";
 
 	qs0 = a[r2][y2][1];
 	qs1 = 0;
@@ -3115,16 +3114,16 @@ void kik0(int r2, int y2, int rvg) {
 		a[r2][y2][i7] = 0;
 
 	gotoxy(72, 21);
-	printf("%ld ", rv);
+	std::cout << rv;
 
 	gotoxy(72, 22);
-	printf("%ld %ld", fa0, fa1);
+	std::cout << fa0 << ' ' << fa1;
 
 	gotoxy(66 + (i7 - 5) * 2, 16);
-	printf("%d", a[r2][y2][i7]);
+	std::cout << a[r2][y2][i7];
 
 	gotoxy(66, 17 + fnb);
-	printf("%d", a0[!r2][rvg][5]);
+	std::cout << a0[!r2][rvg][5];
 
 	delay(700);
 	clearScreenArea(66, 20, 15, 3);
