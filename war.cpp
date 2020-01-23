@@ -429,13 +429,13 @@ vf:
 			for (t = 0; t < 200; t++) {
 				if (a[i][t][0] == 1 && a[i][t][1] == j) {
 					gotoxy(65, 12);
-					printf("игрок %ld", i + 1);
+					std::cout << "Игрок " << (i + 1);
 
 					gotoxy(66, 13);
-					printf("ходит ди-");
+					std::cout << "ходит ди-";
 
 					gotoxy(66, 14);
-					printf("визия %c%d", typeForce[j], a[i][t][4]);
+					std::cout << "визия " << typeForce[j] << a[i][t][4];
 
 					step();
 
@@ -448,23 +448,23 @@ vf:
 		}
 
 		gotoxy(65, 15);
-		printf("добыча");
+		std::cout << "добыча";
 
 		gotoxy(65, 16);
-		printf("ресурсов");
+		std::cout << "ресурсов";
 
 		pro();
 
 		gotoxy(65, 15);
-		printf("ставьте здания");
+		std::cout << "ставьте здания";
 
 		bld();
 
 		gotoxy(65, 15);
-		printf("производите");
+		std::cout << "производите";
 
 		gotoxy(65, 16);
-		printf("войска");
+		std::cout << "войска";
 
 		pro1();
 
@@ -476,7 +476,7 @@ vf:
 					ce = 0;
 					sec();
 				}
-				//if(a[!i][t][0]==1 && a[!i][t][1]==j){qsd(!i);}
+				// if (a[!i][t][0] == 1 && a[!i][t][1] == j) { qsd(!i); }
 			}
 		}
 zu:
@@ -516,13 +516,13 @@ zv:
 
 vg:
 		gotoxy(66, 11);
-		printf("ход окончен");
-
+		std::cout << "ход окончен";
+		
 		gotoxy(66, 13);
-		printf("потери за ход-х");
+		std::cout << "потери за ход - х";
 
 		gotoxy(66, 14);
-		printf("общие потери-y");
+		std::cout << "общие потери - y";
 
 		d = _getch();
 
@@ -559,7 +559,7 @@ void clearScreenArea(long x1, long y1, long x2, long y2) {
 	for (ii3 = x1; ii3 <= x1 + x2 - 1; ii3++) {
 		for (jj3 = y1; jj3 <= y1 + y2 - 1; jj3++) {
 			gotoxy(ii3, jj3);
-			printf(" ");
+			std::cout << ' ';
 		}
 	}
 }
@@ -597,14 +597,17 @@ void ds(long m1, long n1) {
 	for (ii1 = 1; ii1 <= 60; ii1++) {
 		gotoxy(3 + ii1, 2);
 		tt = (ii1 + re) % 5;
+
 		if (tt == 0)
 			tt = 5;
-		printf("%ld", tt);
+
+		std::cout << tt;
 
 		gotoxy(3 + ii1, 1);
+
 		if (tt == 3) {
 			textcolor(2);
-			printf("%ld", (ii1 + re - 3) / 5 + 1);
+			std::cout << ((ii1 + re - 3) / 5 + 1);
 			textcolor(7);
 		}
 	}
@@ -617,21 +620,21 @@ void ds(long m1, long n1) {
 		tt = (ii1 + rw) % 5;
 		if (tt == 0)
 			tt = 5;
-		printf("%ld", tt);
+		std::cout << tt;
 
 		gotoxy(1, 3 + ii1);
 		if (tt == 3) {
 			textcolor(3);
-			printf("%ld", (ii1 + rw - 3) / 5 + 1);
+			std::cout << ((ii1 + rw - 3) / 5 + 1);
 			textcolor(7);
 		}
 	}
 
 	gotoxy(68, 2);
-	printf("текущие");
+	std::cout << "текущие";
 
 	gotoxy(67, 3);
-	printf("координаты");
+	std::cout << "координаты";
 
 	gt = m / 5 + 1;
 	gy = n / 5 + 1;
@@ -651,26 +654,26 @@ void ds(long m1, long n1) {
 		df = n % 5;
 
 	gotoxy(69, 4);
-	printf("%ld   %ld ", m, n);
+	std::cout << m << "   " << n;
 
 	gotoxy(67, 5);
-	printf("Х: s %ld, c %ld ", gt, de);
+	std::cout << "Х: s " << gt << ", c " << de << ' ';
 
 	gotoxy(67, 6);
-	printf("Y: s %ld, c %ld ", gy, df);
+	std::cout << "Y: s " << gy << ", c " << df << ' ';
 
 	for (ii1 = 4; ii1 <= 63; ii1++) {
 		for (jj1 = 4; jj1 <= 23; jj1++) {
 			if (re + ii1 - 3 == m) {
 				clearScreenArea(3, jj1 - 1, 1, 1);
 				gotoxy(ii1 - 1, 3);
-				printf(" | ");
+				std::cout << " | ";
 			}
 
 			if (rw + jj1 - 3 == n) {
 				clearScreenArea(3, jj1 + 1, 1, 1);
 				gotoxy(3, jj1);
-				printf("-");
+				std::cout << '-';
 			}
 
 			if (l[re + ii1 - 3][rw + jj1 - 3] == 0) {
@@ -679,13 +682,13 @@ void ds(long m1, long n1) {
 						((re + ii1 - 4) % 10 < 5 && (rw + jj1 - 4) % 10 < 5)) {
 						textbackground(7);
 						gotoxy(ii1, jj1);
-						printf(" ");
+						std::cout << ' ';
 						textbackground(0);
 					}
 					else {
 						textbackground(0);
 						gotoxy(ii1, jj1);
-						printf(" ");
+						std::cout << ' ';
 						textbackground(0);
 					}
 				}
@@ -695,13 +698,13 @@ void ds(long m1, long n1) {
 						((re + ii1 - 4) % 10 < 5 && (rw + jj1 - 4) % 10 < 5)) {
 						textbackground(6);
 						gotoxy(ii1, jj1);
-						printf(" ");
+						std::cout << ' ';
 						textbackground(0);
 					}
 					else {
 						textbackground(0);
 						gotoxy(ii1, jj1);
-						printf(" ");
+						std::cout << ' ';
 						textbackground(0);
 					}
 				}
@@ -710,7 +713,7 @@ void ds(long m1, long n1) {
 			if (re + ii1 - 3 == m && rw + jj1 - 3 == n) {
 				textbackground(4);
 				gotoxy(ii1, jj1);
-				printf(" ");
+				std::cout << ' ';
 				textbackground(0);
 				gotoxy(80, 25);
 				delay(300);
@@ -721,7 +724,7 @@ void ds(long m1, long n1) {
 				rr = l[re + ii1 - 3][rw + jj1 - 3];
 				textcolor(0);
 				textbackground(1);
-				printf("%c", typeForce[rr - 1]);
+				std::cout << typeForce[rr - 1];
 				textcolor(7);
 				textbackground(0);
 			}
@@ -731,7 +734,7 @@ void ds(long m1, long n1) {
 				rr = l[re + ii1 - 3][rw + jj1 - 3] - 10;
 				textcolor(0);
 				textbackground(2);
-				printf("%c", typeForce[rr - 1]);
+				std::cout << typeForce[rr - 1];
 				textcolor(7);
 				textbackground(0);
 			}
@@ -741,7 +744,7 @@ void ds(long m1, long n1) {
 				rr = l[re + ii1 - 3][rw + jj1 - 3] - 60;
 				textcolor(0);
 				textbackground(4);
-				printf("%c", typeForce[rr - 1]);
+				std::cout << typeForce[rr - 1];
 				textcolor(7);
 				textbackground(0);
 			}
@@ -751,7 +754,7 @@ void ds(long m1, long n1) {
 				rr = l[re + ii1 - 3][rw + jj1 - 3] - 70;
 				textcolor(0);
 				textbackground(5 + f3 / 2);
-				printf("%c", typeForce[rr - 1]);
+				std::cout << typeForce[rr - 1];
 				textcolor(7);
 				textbackground(0);
 			}
@@ -761,7 +764,7 @@ void ds(long m1, long n1) {
 				rr = l[re + ii1 - 3][rw + jj1 - 3] - 80;
 				textcolor(0);
 				textbackground(7 - f4 / 2);
-				printf("%c", typeForce[rr - 1]);
+				std::cout << typeForce[rr - 1];
 				textcolor(7);
 				textbackground(0);
 			}
@@ -771,7 +774,7 @@ void ds(long m1, long n1) {
 				rr = l[re + ii1 - 3][rw + jj1 - 3] - 20;
 				textcolor(0);
 				textbackground(3);
-				printf("%c", e1[rr - 1]);
+				std::cout << e1[rr - 1];
 				textcolor(7);
 				textbackground(0);
 			}
@@ -781,7 +784,7 @@ void ds(long m1, long n1) {
 				rr = l[re + ii1 - 3][rw + jj1 - 3] - 30;
 				textcolor(0);
 				textbackground(4);
-				printf("%c", e1[rr - 1]);
+				std::cout << e1[rr - 1];
 				textcolor(7);
 				textbackground(0);
 			}
@@ -791,7 +794,7 @@ void ds(long m1, long n1) {
 				rr = l[re + ii1 - 3][rw + jj1 - 3] - 100;
 				textcolor(0);
 				textbackground(5);
-				printf("%c", e1[rr - 1]);
+				std::cout << e1[rr - 1];
 				textcolor(7);
 				textbackground(0);
 			}
@@ -801,7 +804,7 @@ void ds(long m1, long n1) {
 				rr = l[re + ii1 - 3][rw + jj1 - 3] - 110;
 				textcolor(0);
 				textbackground(6);
-				printf("%c", e1[rr - 1]);
+				std::cout << e1[rr - 1];
 				textcolor(7);
 				textbackground(0);
 			}
@@ -870,10 +873,10 @@ zl:
 
 			if (b[j][0] == 1 || b[j][0] == 3) {
 				gotoxy(66, 18);
-				printf("задайте");
+				std::cout << "Задайте";
 
 				gotoxy(66, 19);
-				printf("нападение (0 / 1)");
+				std::cout << "нападение (0 / 1)";
 
 				delay(300);
 zn:
@@ -931,7 +934,7 @@ void step() {
 
 	if (qd == 0) {
 		gotoxy(66, 16);
-		printf("%ld ходов", qs);
+		std::cout << qs << " ходов";
 		d = _getch();
 	}
 
@@ -940,15 +943,15 @@ void step() {
 		textcolor(u - 4);
 
 		if (u - 4 <= mn[j] && a[i][t][u] > 0)
-			printf("%d ", a[i][t][u]);
+			std::cout << a[i][t][u];
 		else
-			printf("  ");
+			std::cout << "  ";
 		textcolor(7);
 	}
 
 	for (dw = qd; dw > 0; dw--) {
 		gotoxy(66, 16);
-		printf("%ld ходов", dw);
+		std::cout << dw << " ходов";
 
 		d = _getch();
 
@@ -1088,7 +1091,7 @@ void step() {
 			dw++;
 zp:
 		gotoxy(66, 16);
-		printf("%ld ходов", dw - 1);
+		std::cout << (dw - 1) << " ходов";
 	}
 }
 
@@ -1318,7 +1321,7 @@ void bat(long o, long k1, long k2) {
 
 	gotoxy(65, 12);
 
-	printf("удар %c%d по %c%d", typeForce[a[o][k1][1]], a[o][k1][4], typeForce[a[!o][k2][1]], a[!o][k2][4]);
+	std::cout << "Удар " << typeForce[a[o][k1][1]] << a[o][k1][4] << " по " << typeForce[a[!o][k2][1]] << a[!o][k2][4];
 
 	clearScreenArea(66, 14, 14, 2);
 
@@ -1342,16 +1345,16 @@ void bat(long o, long k1, long k2) {
 		textcolor(u - 4);
 
 		if (u - 4 <= mn[a[o][k1][1]] && a[o][k1][u] > 0)
-			printf("%d", a[o][k1][u]);
+			std::cout << a[o][k1][u];
 		else
-			printf(" ");
+			std::cout << ' ';
 
 		gotoxy(66 + 2 * (u - 5), 15);
 
 		if (u - 4 <= mn[a[!o][k2][1]] && a[!o][k2][u] > 0)
-			printf("%d", a[!o][k2][u]);
+			std::cout << a[!o][k2][u];
 		else
-			printf(" ");
+			std::cout << ' ';
 		textcolor(7);
 	}
 
