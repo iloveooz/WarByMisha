@@ -5,8 +5,9 @@
 #include <iostream>
 #include <conio.h>
 #include <random>
+#include <string>
 
-// TODO create std::map with typeForce and std::string name force
+// TODO delete all gotos
 
 // TODO logic understanding
 
@@ -187,9 +188,9 @@ int e8[2][8];
 
 int f8[2][8];
 
-char typeForce[9] = "CATZD45L";
+std::string typeForce = "CATZD45L";
 
-char e1[7] = "ЭЛРТКО";
+std::string e1 = "ЭЛРТКО";
 
 int mi[2][16][8];
 
@@ -231,21 +232,21 @@ int main() {
 
 			gotoxy(35, 7);
 			std::cout << "q - конец";
-		zb:
-			gotoxy(27, 9);
-			std::cout << "Ваш выбор (1 - 8 или q): ";
-
-			keyInput();
-
-			if (d == 'q')
-				goto za;
-
-			ab = atoi(&d) - 1;
-
-			if (ab < 0 || ab > 7) {
+		
+			do {
 				clearScreenArea(0, 9, 70, 5);
-				goto zb;
-			}
+
+				gotoxy(27, 9);
+				std::cout << "Ваш выбор (1 - 8 или q): ";
+
+				keyInput();
+
+				if (d == 'q')
+					goto za;
+
+				ab = atoi(&d) - 1;
+
+			} while (ab < 0 || ab > 7);
 
 			gotoxy(27, 10);
 			std::cout << "Введите количество дивизий типа " << typeForce[ab] << ": ";
@@ -481,16 +482,13 @@ vf:
 				// if (a[!i][t][0] == 1 && a[!i][t][1] == j) { qsd(!i); }
 			}
 		}
-	zu:
-		if (j5 < 7 && j >= 7) {
-			sec();
-		}
 
-		if (j5 >= 7) {
-			goto zv;
-		}
-		goto zu;
-	zv:
+		do {
+			if (j5 < 7 && j >= 7) {
+				sec();
+			}
+		} while (j5 <= 7);
+
 		for (i9 = 0; i9 < 200; i9++) {
 			if (a[!i][i9][0] == 1 &&
 				a[!i][i9][5] <= 0 &&
@@ -1533,12 +1531,12 @@ void kik(long o, long k1, long k2) {
 	}
 
 	case 2: {
-		ha0 = static_cast<double>(2.0)* ss;
+		ha0 = 2.0 * ss;
 		break;
 	}
 
 	case 3: {
-		ha0 = static_cast<double>(3.0)* ss;
+		ha0 = 3.0 * ss;
 		break;
 	}
 
@@ -1548,8 +1546,8 @@ void kik(long o, long k1, long k2) {
 	}
 
 	case 5: {
-		h2 = static_cast<double>(a[o][k1][i7])* ss;
-		h3 = static_cast<double>(a[!o][k2][k4]);
+		h2 = a[o][k1][i7] * ss;
+		h3 = a[!o][k2][k4];
 
 		if (h2 > h3) {
 			ha0 = a[!o][k2][k4];
@@ -2886,7 +2884,7 @@ void fas(int r1, int y1) {
 }
 
 void bat0(int r2, int y2) {
-	long we, wr, gt1, gy1, de1, df1, rvg = 0, i20, s7;
+	long we, wr, gt1, gy1, de1, df1, rvg = 0;
 
 	we = a[r2][y2][2];
 	wr = a[r2][y2][3];
@@ -2908,14 +2906,14 @@ void bat0(int r2, int y2) {
 	else
 		df1 = wr % 5;
 
-	for (i20 = 0; i20 < 50; i20++) {
+	for (long i20 = 0; i20 < 50; i20++) {
 		if (a0[!r2][i20][2] == gt1 && a0[!r2][i20][3] == gy1) {
 			rvg = i20;
 			goto ca;
 		}
 	}
 ca:
-	s7 = a0[!r2][rvg][1] - 1;
+	long s7 = a0[!r2][rvg][1] - 1;
 
 	l[gt1 * 5 + 3][gy1 * 5 + 2 + !r2] = r2 * 10 + 100 + s7 + 1;
 	l[gt1 * 5 + 4][gy1 * 5 + 2 + !r2] = r2 * 10 + 100 + s7 + 1;
@@ -3069,8 +3067,14 @@ ca:
 
 
 void kik0(int r2, int y2, int rvg) {
-	if (a0[!r2][rvg][5] <= 0)
-		goto vbi;
+	if (a0[!r2][rvg][5] <= 0) {
+		if (a0[!r2][rvg][5] <= 0)
+			a0[!r2][rvg][5] = 0;
+
+		if (a[r2][y2][i7] <= 0 && rv == 5)
+			a[r2][y2][i7] = -9;
+		return;
+	}
 
 	///*
 	rv = static_cast<long>(randMT()) % 6 + 1;
@@ -3136,12 +3140,6 @@ void kik0(int r2, int y2, int rvg) {
 	fa1 = 0;
 
 	//*/
-vbi:
-	if (a0[!r2][rvg][5] <= 0)
-		a0[!r2][rvg][5] = 0;
-
-	if (a[r2][y2][i7] <= 0 && rv == 5)
-		a[r2][y2][i7] = -9;
 }
 
 
