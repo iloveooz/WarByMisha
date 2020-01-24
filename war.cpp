@@ -16,8 +16,6 @@
 
 // TODO add OOP and patterns
 
-// TODO delete all warnings
-
 enum ConsoleColor {
 	Black = 0,
 	Blue = 1,
@@ -94,7 +92,7 @@ long sd1, sd2, sd3, scx, wq, wq1, dwq, sf1, sf2, sf3, sh1, sh2, sh3, qw, qa, fnb
 
 int afg1, afg2, afg3, sms;
 
-float ss, ha0, ha1, h2, h3, ha00, ha01;
+double ss, ha0, ha1, h2, h3, ha00, ha01;
 
 int sw, sv, qs0, qs1, i15;
 
@@ -146,7 +144,7 @@ int a0[2][50][7];
 
 int ll[6] = { 10, 4, 7, 30, 20, 25 };
 
-float c1[10][4] = {
+double c1[10][4] = {
 	{ 1.5, 1.0, 0.8, 0.4 },
 	{ 3.0, 4.0, 1.2, 1.5 },
 	{ 4.0, 2.0, 2.0, 1.0 },
@@ -286,9 +284,9 @@ int main() {
 		gotoxy(58, 11);
 		std::cout << "Руда(" << resource[i][2] << ")";
 
-		dm1[i][0] = 0.1 * resource[i][0];
-		dm1[i][1] = 0.1 * resource[i][1];
-		dm1[i][2] = 0.1 * resource[i][2];
+		dm1[i][0] = resource[i][0] / 10;
+		dm1[i][1] = resource[i][1] / 10;
+		dm1[i][2] = resource[i][2] / 10;
 
 		delay(300);
 		d = _getch();
@@ -1535,12 +1533,12 @@ void kik(long o, long k1, long k2) {
 	}
 
 	case 2: {
-		ha0 = static_cast<float>(2.0)* ss;
+		ha0 = static_cast<double>(2.0)* ss;
 		break;
 	}
 
 	case 3: {
-		ha0 = static_cast<float>(3.0)* ss;
+		ha0 = static_cast<double>(3.0)* ss;
 		break;
 	}
 
@@ -1550,8 +1548,8 @@ void kik(long o, long k1, long k2) {
 	}
 
 	case 5: {
-		h2 = static_cast<float>(a[o][k1][i7])* ss;
-		h3 = static_cast<float>(a[!o][k2][k4]);
+		h2 = static_cast<double>(a[o][k1][i7])* ss;
+		h3 = static_cast<double>(a[!o][k2][k4]);
 
 		if (h2 > h3) {
 			ha0 = a[!o][k2][k4];
