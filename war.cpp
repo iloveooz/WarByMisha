@@ -14,8 +14,6 @@
 // TODO rename all matrixes
 // TODO rename all functions
 
-// TODO replace SRAND by c++11 random generator
-
 // TODO add OOP and patterns
 
 // TODO delete all warnings
