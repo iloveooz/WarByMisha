@@ -4,17 +4,21 @@
 #include <thread>
 #include <iostream>
 #include <conio.h>
+#include <random>
+
+// TODO create std::map with typeForce and std::string name force
+
+// TODO logic understanding
 
 // TODO rename all variables
 // TODO rename all matrixes
 // TODO rename all functions
-// TODO create std::map with typeForce and std::string name force\
 
 // TODO replace SRAND by c++11 random generator
 
-// TODO logic understanding
-
 // TODO add OOP and patterns
+
+// TODO delete all warnings
 
 enum ConsoleColor {
 	Black = 0,
@@ -66,6 +70,10 @@ void gotoxy(int xpos, int ypos);
 void delay(int duration);
 void textbackground(int background);
 void textcolor(int text);
+
+// random generator
+std::random_device device;
+std::mt19937 randMT(device());
 
 // variables
 char d;
@@ -141,15 +149,15 @@ int a0[2][50][7];
 int ll[6] = { 10, 4, 7, 30, 20, 25 };
 
 float c1[10][4] = {
-	{ 1.5, 1,   0.8, 0.4 },
-	{ 3,   4,   1.2, 1.5 },
-	{ 4,   2,   2,   1   },
-	{ 7,   4,   2,   2   },
-	{ 5,   6,   3,   3   },
-	{ 3.5, 5,   2.5, 3   },
-	{ 4,   8,   2.5, 3.5 },
-	{ 0,   1,   0,   1   },
-	{ 2,   1.5, 0.5, 0.9 },
+	{ 1.5, 1.0, 0.8, 0.4 },
+	{ 3.0, 4.0, 1.2, 1.5 },
+	{ 4.0, 2.0, 2.0, 1.0 },
+	{ 7.0, 4.0, 2.0, 2.0 },
+	{ 5.0, 6.0, 3.0, 3.0 },
+	{ 3.5, 5.0, 2.5, 3.0 },
+	{ 4.0, 8.0, 2.5, 3.5 },
+	{ 0.0, 1.0, 0.0, 1.0 },
+	{ 2.0, 1.5, 0.5, 0.9 },
 	{ 3.5, 3.5, 1.8, 2.5 }
 };
 
@@ -191,7 +199,7 @@ int mi[2][16][8];
 
 // main
 int main() {
-	srand(time(nullptr));
+
 	setlocale(LC_ALL, "Russian");
 
 	system("cls");
@@ -928,7 +936,7 @@ void step() {
 		qs = 0;
 	}
 
-	qd = rand() % (qsa + 1) + qs;
+	qd = static_cast<long>(randMT()) % (qsa + 1) + qs;
 
 	if (qd == 0) {
 		gotoxy(66, 16);
@@ -1161,7 +1169,7 @@ void qsd(long r, long y) {
 	if (sce1 != 0 && sce1 == sce)
 		fas(i, t);
 
-	sl = rand() % (sce + sms) + 1;
+	sl = static_cast<long>(randMT()) % (sce + sms) + 1;
 	sce = 0;
 	fl = 1;
 	ce = 0;
@@ -1191,7 +1199,7 @@ void qsd(long r, long y) {
 
 	goto zs;
 zsx:
-	sl = rand() % (sce - sce1) + 1;
+	sl = static_cast<long>(randMT()) % (sce - sce1) + 1;
 	sce = 0;
 	fl = 1;
 	sce1 = 0;
@@ -1384,10 +1392,10 @@ void bat(long o, long k1, long k2) {
 
 	gotoxy(66, 21);
 	std::cout << "Потери: " << (fr0 - fg0) << '-' << (fr1 - fg1);
-	
+
 	gotoxy(66, 22);
 	std::cout << "После: " << fg0 << '-' << fg1;
-	
+
 	gotoxy(66, 23);
 	std::cout << "статистика - x";
 
@@ -1487,7 +1495,7 @@ void kik(long o, long k1, long k2) {
 		goto vb;
 	}
 
-	rv = rand() % 6 + 1;
+	rv = static_cast<long>(randMT()) % 6 + 1;
 	sw = a[o][k1][1];
 
 	if (sw == 0 && a[o][k1][12] == 0)
@@ -1597,7 +1605,7 @@ void kik(long o, long k1, long k2) {
 
 	gotoxy(66, 21);
 	std::cout << ha0 << ' ' << ha1;
-	
+
 	gotoxy(66, 22);
 	std::cout << fa0 << ' ' << fa1;
 
@@ -1606,7 +1614,7 @@ void kik(long o, long k1, long k2) {
 
 	gotoxy(66 + (k4 - 5) * 2, 17);
 	std::cout << a[!o][k2][k4];
-	
+
 	delay(700);
 	clearScreenArea(66, 20, 15, 3);
 
@@ -1699,7 +1707,7 @@ void stt() {
 		std::cout << typeForce[i] << "   " << e8[0][i];
 
 		gotoxy(76, 14 + i);
-		std::cout << e8[1][i] << "  ";	
+		std::cout << e8[1][i] << "  ";
 	}
 
 	delay(100);
@@ -1811,7 +1819,7 @@ xc:
 
 	gotoxy(65, 12);
 	std::cout << "Руда." << dm1[i][2] / 10 << dm1[i][2] % 10 << ' ';
-	
+
 	gotoxy(65, 13);
 	std::cout << "строительство?";
 	delay(300);
@@ -3069,7 +3077,7 @@ void kik0(int r2, int y2, int rvg) {
 		goto vbi;
 
 	///*
-	rv = rand() % 6 + 1;
+	rv = static_cast<long>(randMT()) % 6 + 1;
 
 	fnb++;
 
